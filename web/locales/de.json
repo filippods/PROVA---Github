@@ -254,5 +254,10 @@
     "months.settembre": "September",
     "months.ottobre": "Oktober",
     "months.novembre": "November",
-    "months.dicembre": "Dezember"
+    "months.dicembre": "Dezember",
+    "createProgram.pageSubtitle": "Planen Sie Zeiten, Frequenzen und Zonen mit wenigen Fingertipps",
+    "modifyProgram.pageSubtitle": "Aktualisieren Sie bestehende Programme und behalten Sie Ihre bevorzugten Einstellungen bei",
+    "programs.pageSubtitle": "Überwachen, starten und bearbeiten Sie Bewässerungsprogramme in Ihrem IrrigaSmart-Netzwerk",
+    "manual.pageSubtitle": "Steuern Sie Zonen in Echtzeit und überwachen Sie den aktuellen Systemstatus",
+    "settings.pageSubtitle": "Passen Sie Netzwerk, Zonen und erweiterte Einstellungen an"
 }
