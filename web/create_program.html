@@ -4,680 +4,655 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title data-i18n="createProgram.pageTitle">Crea Nuovo Programma</title>
+    <link rel="icon" href="favicon.webp" type="image/webp">
     <style>
-        /* Apple Glassmorphism Program Creation */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
         :root {
-            /* Enhanced Program Creation Colors - Azzurrino Palette */
-            --color-primary: rgba(64, 162, 235, 0.9);
-            --color-primary-light: rgba(64, 162, 235, 0.2);
-            --color-primary-gradient: linear-gradient(135deg, rgba(64, 162, 235, 0.9) 0%, rgba(52, 152, 219, 0.85) 100%);
-            --color-primary-dark: rgba(52, 139, 199, 0.95);
+            --font-family-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 
-            --color-secondary: rgba(58, 141, 162, 0.9);
-            --color-secondary-light: rgba(58, 141, 162, 0.2);
-            --color-secondary-gradient: linear-gradient(135deg, rgba(58, 141, 162, 0.9) 0%, rgba(46, 125, 150, 0.85) 100%);
+            --color-primary: rgba(88, 164, 255, 0.92);
+            --color-primary-dark: rgba(42, 123, 222, 0.95);
+            --color-primary-light: rgba(88, 164, 255, 0.18);
+            --color-primary-gradient: linear-gradient(135deg, rgba(88, 164, 255, 0.9) 0%, rgba(42, 123, 222, 0.85) 100%);
+            --color-primary-rgb: 88, 164, 255;
 
-            --color-accent: rgba(106, 145, 169, 0.9);
-            --color-accent-light: rgba(106, 145, 169, 0.2);
-            --color-accent-gradient: linear-gradient(135deg, rgba(106, 145, 169, 0.9) 0%, rgba(96, 125, 159, 0.85) 100%);
+            --color-secondary: rgba(90, 205, 190, 0.9);
+            --color-secondary-dark: rgba(36, 169, 150, 0.95);
+            --color-secondary-light: rgba(90, 205, 190, 0.16);
 
-            /* Enhanced Surface Colors with Gradients */
-            --color-surface: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(250, 252, 255, 0.12) 100%);
-            --color-surface-light: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(250, 254, 255, 0.18) 100%);
-            --color-surface-elevated: linear-gradient(135deg, rgba(255, 255, 255, 0.28) 0%, rgba(248, 252, 255, 0.24) 100%);
+            --color-accent: rgba(188, 169, 255, 0.85);
+            --color-accent-light: rgba(188, 169, 255, 0.22);
 
-            /* Enhanced Text Colors */
-            --color-text-headings: rgba(15, 23, 42, 0.95);
-            --color-text-body: rgba(30, 41, 59, 0.9);
-            --color-text-muted: rgba(96, 125, 139, 0.8);
+            --color-text-primary: rgba(20, 28, 38, 0.95);
+            --color-text-secondary: rgba(62, 78, 96, 0.85);
+            --color-text-muted: rgba(110, 128, 145, 0.75);
             --color-text-inverse: rgba(255, 255, 255, 0.98);
+            --color-text-light: rgba(255, 255, 255, 0.85);
 
-            /* Enhanced Glass Effects */
-            --glass-blur: 20px;
-            --glass-blur-sm: 12px;
-            --glass-blur-lg: 32px;
-            --glass-border: 1px solid rgba(255, 255, 255, 0.25);
-            --glass-border-accent: 1px solid rgba(52, 152, 219, 0.4);
+            --color-success: rgba(56, 189, 149, 0.95);
+            --color-success-rgb: 56, 189, 149;
+            --color-warning: rgba(255, 196, 105, 0.95);
+            --color-warning-rgb: 255, 196, 105;
+            --color-danger: rgba(236, 98, 98, 0.95);
+            --color-danger-dark: rgba(214, 68, 68, 0.95);
+            --color-danger-rgb: 236, 98, 98;
 
-            /* Enhanced Shadows */
-            --shadow-glass-sm: 0 4px 16px rgba(96, 125, 139, 0.08);
-            --shadow-glass-md: 0 8px 32px rgba(96, 125, 139, 0.12);
-            --shadow-glass-lg: 0 16px 48px rgba(96, 125, 139, 0.16);
+            --color-border-light: rgba(255, 255, 255, 0.35);
+            --color-border-medium: rgba(147, 167, 188, 0.25);
+            --color-border-strong: rgba(110, 128, 145, 0.32);
+            --color-border-accent: rgba(88, 164, 255, 0.4);
 
-            /* Layout */
-            --radius-xs: 6px;
-            --radius-sm: 8px;
-            --radius-base: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 24px;
-            --radius-full: 50px;
+            --color-surface: linear-gradient(135deg, rgba(255, 255, 255, 0.24) 0%, rgba(245, 250, 255, 0.18) 100%);
+            --color-surface-elevated: linear-gradient(135deg, rgba(255, 255, 255, 0.32) 0%, rgba(240, 248, 255, 0.26) 100%);
+            --color-surface-overlay: linear-gradient(145deg, rgba(255, 255, 255, 0.38) 0%, rgba(245, 248, 255, 0.3) 100%);
+            --color-surface-muted: rgba(255, 255, 255, 0.16);
 
-            --transition-duration-fast: 150ms;
-            --transition-duration-base: 250ms;
-            --transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+            --glass-blur-light: 12px;
+            --glass-blur-medium: 18px;
+            --glass-blur-strong: 26px;
 
-            --font-family-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --shadow-soft: 0 8px 28px rgba(40, 65, 97, 0.14);
+            --shadow-medium: 0 16px 42px rgba(32, 55, 87, 0.2);
+            --shadow-intense: 0 26px 78px rgba(22, 40, 72, 0.26);
+
+            --radius-sm: 12px;
+            --radius-md: 18px;
+            --radius-lg: 24px;
+            --radius-pill: 999px;
+
+            --spacing-xs: 6px;
+            --spacing-sm: 12px;
+            --spacing-md: 20px;
+            --spacing-lg: 28px;
+            --spacing-xl: 42px;
+
+            --transition-fast: 0.18s ease;
+            --transition-base: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+
+            --header-height: 70px;
+            --bottom-nav-height: 68px;
         }
-        
-        /* Reset e Base */
-        * {
+
+        *, *::before, *::after {
             box-sizing: border-box;
         }
-        
-        /* Background Glass Effect */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
+
+        html {
             height: 100%;
-            backdrop-filter: blur(40px);
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.1) 100%);
-            z-index: -1;
-            pointer-events: none;
         }
 
         body {
+            min-height: 100vh;
             margin: 0;
             font-family: var(--font-family-main);
-            color: var(--color-text-body);
-            line-height: 1.5;
-        }
-        
-        /* Layout Container - Responsive e coerente */
-        .page-wrapper {
-            max-width: 1200px; /* Larghezza aumentata per layout responsive */
-            margin: 0 auto;
-            padding: 20px;
+            color: var(--color-text-primary);
+            background: radial-gradient(120% 120% at 10% 10%, rgba(188, 169, 255, 0.18) 0%, transparent 60%),
+                        radial-gradient(120% 120% at 90% 20%, rgba(90, 205, 190, 0.18) 0%, transparent 65%),
+                        linear-gradient(135deg, rgba(244, 248, 255, 0.88) 0%, rgba(236, 246, 255, 0.92) 100%);
+            padding: calc(var(--header-height) + var(--spacing-lg)) var(--spacing-lg)
+                     calc(var(--bottom-nav-height) + var(--spacing-xl));
+            position: relative;
+            overflow-x: hidden;
         }
 
-        /* Layout responsive per form sections */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            backdrop-filter: blur(var(--glass-blur-strong)) saturate(160%);
+            -webkit-backdrop-filter: blur(var(--glass-blur-strong)) saturate(160%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.36) 0%, rgba(245, 250, 255, 0.26) 100%);
+            z-index: -2;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(60% 80% at 0% 100%, rgba(88, 164, 255, 0.16), transparent 70%),
+                radial-gradient(70% 70% at 100% 0%, rgba(90, 205, 190, 0.16), transparent 70%),
+                radial-gradient(40% 50% at 50% 20%, rgba(188, 169, 255, 0.12), transparent 70%);
+            mix-blend-mode: screen;
+            z-index: -1;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .page-content-wrapper {
+            width: min(1120px, 100%);
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .create-program-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+
+        .page-header {
+            text-align: center;
+            padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-md);
+            background: var(--color-surface-elevated);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border-light);
+            box-shadow: var(--shadow-soft);
+            backdrop-filter: blur(var(--glass-blur-medium));
+            -webkit-backdrop-filter: blur(var(--glass-blur-medium));
+        }
+
+        .page-title {
+            font-size: clamp(26px, 3vw, 34px);
+            font-weight: 700;
+            margin-bottom: var(--spacing-xs);
+            color: var(--color-text-primary);
+        }
+
+        .page-subtitle {
+            font-size: 16px;
+            color: var(--color-text-secondary);
+            opacity: 0.85;
+        }
+
+        .form-sections-grid {
+            display: grid;
+            gap: var(--spacing-lg);
+        }
+
         @media (min-width: 1024px) {
-            .form-sections-container {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 24px;
+            .form-sections-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
-            
+
             .form-section.full-width {
                 grid-column: 1 / -1;
             }
         }
-        
-        /* Header */
-        .page-header {
-            text-align: center;
-            margin-bottom: 32px;
-            padding-bottom: 20px;
-            border-bottom: var(--glass-border);
-        }
 
-        .page-title {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--color-text-headings);
-            margin: 0 0 8px 0;
-        }
-        
-        .page-subtitle {
-            font-size: 16px;
-            color: var(--color-text-muted, #64748b);
-            margin: 0;
-        }
-        
-        /* Form Sections - Glass Design */
         .form-section {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
             background: var(--color-surface);
-            border: var(--glass-border);
-            backdrop-filter: blur(var(--glass-blur));
             border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-glass-md);
-            margin-bottom: 24px;
-            overflow: hidden;
-            transition: all var(--transition-duration-base) ease;
-            min-height: 280px;
+            border: 1px solid var(--color-border-light);
+            box-shadow: var(--shadow-soft);
+            backdrop-filter: blur(var(--glass-blur-medium));
+            -webkit-backdrop-filter: blur(var(--glass-blur-medium));
+            transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
         }
 
         .form-section:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-glass-lg);
-            background: var(--color-surface-light);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--color-border-accent);
         }
-        
+
         .section-header {
-            background: var(--color-surface-light);
-            border-bottom: var(--glass-border);
-            color: var(--color-text-headings);
-            padding: 16px 20px;
+            padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-sm);
+            border-bottom: 1px solid var(--color-border-light);
+            background: var(--color-surface-overlay);
         }
-        
+
         .section-title {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 600;
-            margin: 0 0 4px 0;
+            margin-bottom: 6px;
+            color: var(--color-text-primary);
         }
-        
+
         .section-description {
             font-size: 14px;
-            opacity: 0.9;
-            margin: 0;
+            color: var(--color-text-secondary);
         }
-        
+
         .section-content {
-            padding: 24px;
+            padding: 0 var(--spacing-lg) var(--spacing-lg);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
         }
-        
-        /* Form Controls */
+
         .form-group {
-            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
         }
-        
-        .form-group:last-child {
-            margin-bottom: 0;
-        }
-        
+
         .form-label {
-            display: block;
             font-weight: 600;
-            color: var(--color-text-headings, #1e293b);
-            margin-bottom: 8px;
+            color: var(--color-text-primary);
             font-size: 14px;
         }
-        
+
         .form-control {
             width: 100%;
-            padding: 12px 16px;
-            border: var(--glass-border);
-            border-radius: var(--radius-base);
+            padding: 14px 16px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border-medium);
+            background: rgba(255, 255, 255, 0.58);
+            color: var(--color-text-primary);
             font-size: 16px;
-            transition: all var(--transition-duration-fast) ease;
-            background: var(--color-surface);
-            backdrop-filter: blur(var(--glass-blur-sm));
-            color: var(--color-text-body);
+            transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+            backdrop-filter: blur(var(--glass-blur-light));
+            -webkit-backdrop-filter: blur(var(--glass-blur-light));
         }
 
         .form-control:focus {
             outline: none;
-            border-color: var(--color-accent);
-            box-shadow: var(--shadow-glass-lg);
-            background: var(--color-surface-light);
+            border-color: rgba(var(--color-primary-rgb), 0.7);
+            box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.2);
+            background: rgba(255, 255, 255, 0.75);
         }
 
         .form-control:hover:not(:focus) {
-            background: var(--color-surface-light);
-            border-color: rgba(255, 255, 255, 0.3);
+            border-color: rgba(var(--color-primary-rgb), 0.35);
         }
-        
-        /* Select Enhancement */
+
         select.form-control {
-            cursor: pointer;
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-            background-position: right 12px center;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236e80a0' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.8' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
             background-repeat: no-repeat;
+            background-position: right 14px center;
             background-size: 16px;
-            padding-right: 40px;
+            padding-right: 48px;
+            cursor: pointer;
         }
-        
-        /* Custom Days Section */
+
         .custom-interval {
-            margin-top: 16px;
-            padding: 16px;
-            background: var(--color-surface);
-            border: var(--glass-border);
-            backdrop-filter: blur(var(--glass-blur-sm));
-            border-radius: var(--radius-base);
             display: none;
-            box-shadow: var(--shadow-glass-sm);
+            padding: var(--spacing-sm) var(--spacing-md) var(--spacing-md);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border-medium);
+            background: rgba(255, 255, 255, 0.6);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
         }
-        
+
         .custom-interval.show {
             display: block;
-            animation: slideDown 0.3s ease-out;
+            animation: fadeSlideIn var(--transition-base);
         }
-        
-        @keyframes slideDown {
+
+        @keyframes fadeSlideIn {
             from {
                 opacity: 0;
-                transform: translateY(-10px);
+                transform: translateY(-8px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
-        /* Months Grid */
+
         .months-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-            gap: 12px;
+            grid-template-columns: repeat(auto-fit, minmax(88px, 1fr));
+            gap: var(--spacing-sm);
         }
-        
+
         .month-card {
+            position: relative;
             padding: 16px 8px;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.55);
             text-align: center;
-            border: 2px solid var(--color-border, #e2e8f0);
-            border-radius: 8px;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            color: var(--color-text-secondary);
             cursor: pointer;
-            transition: all 0.2s ease;
-            background: white;
-            font-weight: 500;
-            user-select: none;
+            transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base), background var(--transition-base);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
         }
-        
+
         .month-card:hover {
-            border-color: var(--color-primary);
-            background: var(--color-primary-light);
+            transform: translateY(-3px);
+            border-color: rgba(var(--color-primary-rgb), 0.45);
+            box-shadow: var(--shadow-soft);
+            background: rgba(255, 255, 255, 0.75);
         }
-        
+
         .month-card.selected {
-            background: var(--color-primary);
-            border-color: var(--color-primary);
-            color: white;
-            transform: scale(1.05);
+            background: var(--color-primary-gradient);
+            color: var(--color-text-inverse);
+            border-color: transparent;
+            box-shadow: 0 16px 32px rgba(var(--color-primary-rgb), 0.26);
         }
-        
-        /* Zones Grid - Compatto */
+
+        .month-card.selected::after {
+            content: '\2713';
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            font-size: 12px;
+            opacity: 0.85;
+        }
+
         .zones-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 12px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: var(--spacing-sm);
         }
-        
+
         .zone-card {
-            border: var(--glass-border);
-            border-radius: var(--radius-base);
-            padding: 12px;
-            background: var(--color-surface);
-            backdrop-filter: blur(var(--glass-blur-sm));
-            cursor: pointer;
-            transition: all var(--transition-duration-fast) ease;
             position: relative;
-            min-height: 80px;
-            box-shadow: var(--shadow-glass-sm);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.32);
+            background: rgba(255, 255, 255, 0.52);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+            cursor: pointer;
+            transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base), background var(--transition-base);
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
         }
 
         .zone-card:hover {
-            border-color: var(--color-accent);
-            box-shadow: var(--shadow-glass-md);
-            background: var(--color-surface-light);
+            transform: translateY(-4px);
+            border-color: rgba(var(--color-primary-rgb), 0.4);
+            box-shadow: var(--shadow-soft);
+            background: rgba(255, 255, 255, 0.72);
         }
 
         .zone-card.selected {
-            border-color: var(--color-accent);
-            background: var(--color-surface-light);
-            box-shadow: var(--shadow-glass-lg);
+            border-color: rgba(var(--color-primary-rgb), 0.75);
+            background: linear-gradient(135deg, rgba(88, 164, 255, 0.25) 0%, rgba(90, 205, 190, 0.22) 100%);
+            box-shadow: 0 18px 36px rgba(var(--color-primary-rgb), 0.22);
         }
-        
+
         .zone-card.selected::before {
-            content: '✓';
+            content: '';
             position: absolute;
-            top: 8px;
-            right: 10px;
-            width: 18px;
-            height: 18px;
-            background: var(--color-accent);
-            color: white;
+            top: 14px;
+            right: 14px;
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
+            background: rgba(var(--color-primary-rgb), 0.9);
+            box-shadow: 0 6px 12px rgba(var(--color-primary-rgb), 0.25);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 10px;
-            font-weight: bold;
-            box-shadow: var(--shadow-glass-sm);
         }
-        
+
+        .zone-card.selected::after {
+            content: '\2713';
+            position: absolute;
+            top: 15px;
+            right: 17px;
+            font-size: 12px;
+            color: var(--color-text-inverse);
+            font-weight: 700;
+        }
+
         .zone-title {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 600;
-            color: var(--color-text-headings);
-            margin: 0 0 8px 0;
-            padding-right: 25px;
+            color: var(--color-text-primary);
+            padding-right: 30px;
         }
-        
+
         .zone-duration-group {
-            margin-top: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
         }
-        
+
         .zone-duration-label {
-            font-size: 10px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.6px;
+            font-size: 11px;
+            font-weight: 600;
             color: var(--color-text-muted);
-            margin-bottom: 4px;
-            font-weight: 500;
         }
-        
+
         .zone-duration-input {
             width: 100%;
-            padding: 6px 8px;
-            border: var(--glass-border);
+            padding: 10px 12px;
             border-radius: var(--radius-sm);
-            font-size: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.65);
+            font-size: 15px;
+            font-weight: 600;
             text-align: center;
-            font-weight: 500;
-            background: var(--color-surface);
-            backdrop-filter: blur(var(--glass-blur-sm));
-            color: var(--color-text-body);
-            transition: all var(--transition-duration-fast) ease;
+            color: var(--color-text-primary);
+            transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
         }
 
         .zone-duration-input:focus {
             outline: none;
-            border-color: var(--color-accent);
-            box-shadow: var(--shadow-glass-md);
-            background: var(--color-surface-light);
+            border-color: rgba(var(--color-primary-rgb), 0.7);
+            box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.18);
+            background: rgba(255, 255, 255, 0.85);
         }
 
         .zone-duration-input:disabled {
-            background: var(--color-surface-dark);
-            color: var(--color-text-muted);
             cursor: not-allowed;
+            opacity: 0.6;
         }
 
-        .zone-card.selected .zone-duration-input:enabled {
-            border-color: var(--color-accent);
-        }
-        
-        /* Hidden Elements */
         .zone-checkbox {
             display: none;
         }
-        
-        /* Action Buttons */
+
         .form-actions {
             display: flex;
-            gap: 12px;
             justify-content: flex-end;
-            margin-top: 32px;
-            padding-top: 24px;
-            border-top: 2px solid var(--color-border, #e2e8f0);
+            gap: var(--spacing-sm);
+            padding-top: var(--spacing-md);
         }
-        
+
         .btn {
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            border: 2px solid transparent;
-            text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            min-width: 120px;
             justify-content: center;
+            gap: 8px;
+            padding: 12px 26px;
+            border-radius: var(--radius-pill);
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+            text-decoration: none;
         }
-        
+
+        .btn:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.3);
+        }
+
         .btn-primary {
-            background: var(--color-surface);
-            border: var(--glass-border);
-            backdrop-filter: blur(var(--glass-blur-sm));
-            color: var(--color-accent);
-            border-color: var(--color-accent);
+            background: var(--color-primary-gradient);
+            color: var(--color-text-inverse);
+            border-color: rgba(var(--color-primary-rgb), 0.6);
+            box-shadow: 0 14px 30px rgba(var(--color-primary-rgb), 0.24);
         }
 
         .btn-primary:hover:not(:disabled) {
-            background: var(--color-surface-light);
-            box-shadow: var(--shadow-glass-lg);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 18px 40px rgba(var(--color-primary-rgb), 0.32);
         }
 
         .btn-secondary {
-            background: var(--color-surface);
-            border: var(--glass-border);
-            backdrop-filter: blur(var(--glass-blur-sm));
-            color: var(--color-text-body);
+            background: rgba(255, 255, 255, 0.58);
+            border-color: rgba(255, 255, 255, 0.7);
+            color: var(--color-text-secondary);
         }
 
         .btn-secondary:hover:not(:disabled) {
-            background: var(--color-surface-light);
-            box-shadow: var(--shadow-glass-md);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+            border-color: rgba(var(--color-primary-rgb), 0.35);
         }
-        
+
         .btn:disabled {
-            opacity: 0.5;
+            opacity: 0.6;
             cursor: not-allowed;
             transform: none;
+            box-shadow: none;
         }
-        
-        .btn.loading {
-            position: relative;
-            color: transparent;
+
+        .loading-state,
+        .error-state {
+            padding: var(--spacing-lg);
+            text-align: center;
+            color: var(--color-text-secondary);
+            background: rgba(255, 255, 255, 0.55);
+            border-radius: var(--radius-md);
+            border: 1px dashed rgba(255, 255, 255, 0.5);
         }
-        
-        .btn.loading::after {
+
+        .loading-state::before {
             content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-top-color: var(--color-accent);
+            width: 38px;
+            height: 38px;
+            margin: 0 auto var(--spacing-sm);
             border-radius: 50%;
-            animation: spin 0.8s linear infinite;
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            border-top-color: rgba(var(--color-primary-rgb), 0.75);
+            display: block;
+            animation: spin 0.9s linear infinite;
         }
-        
+
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
-        
-        /* Loading State */
-        .loading-state {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--color-text-muted, #64748b);
+
+        @media (max-width: 1024px) {
+            body {
+                padding: calc(var(--header-height) + var(--spacing-md)) var(--spacing-md)
+                         calc(var(--bottom-nav-height) + var(--spacing-lg));
+            }
+
+            .page-header {
+                padding: var(--spacing-md);
+            }
         }
-        
-        .loading-state::before {
-            content: '';
-            display: block;
-            width: 40px;
-            height: 40px;
-            margin: 0 auto 16px auto;
-            border: 3px solid rgba(255, 255, 255, 0.2);
-            border-top-color: var(--color-accent);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        /* Error State */
-        .error-state {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--color-text-muted);
-        }
-        
-        /* Responsive Design */
+
         @media (max-width: 768px) {
-            .page-wrapper {
-                padding: 16px;
+            body {
+                padding: calc(var(--header-height) + var(--spacing-sm)) var(--spacing-sm)
+                         calc(var(--bottom-nav-height) + var(--spacing-md));
             }
-            
-            .zones-grid {
-                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-                gap: 8px;
+
+            .page-content-wrapper {
+                padding: 0;
             }
-            
-            .months-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            
+
             .form-actions {
                 flex-direction: column-reverse;
             }
-            
+
             .btn {
                 width: 100%;
             }
+
+            .months-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
         }
-        
-        @media (max-width: 480px) {
+
+        @media (max-width: 540px) {
+            .months-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
             .zones-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             }
-            
-            .zone-card {
-                min-height: 70px;
-                padding: 8px;
-            }
-            
-            .zone-title {
-                font-size: 12px;
-                margin: 0 0 4px 0;
-            }
-            
-            .zone-duration-input {
-                font-size: 12px;
-                padding: 4px 6px;
-            }
-        }
-        
-        /* Validation States */
-        .form-control.error {
-            border-color: var(--color-danger, #dc2626);
-        }
-        
-        .form-control.success {
-            border-color: var(--color-success, #059669);
         }
     </style>
 </head>
-
 <body>
-    <div class="page-wrapper">
-        <!-- Header -->
-        <header class="page-header">
-            <h1 class="page-title" data-i18n="createProgram.pageTitle">Crea Nuovo Programma</h1>
-            <p class="page-subtitle" data-i18n="createProgram.pageSubtitle">Configura un nuovo programma di irrigazione automatica</p>
-        </header>
+    <div class="page-content-wrapper">
+        <div class="create-program-container">
+            <header class="page-header">
+                <h1 class="page-title" data-i18n="createProgram.pageTitle">Nuovo Programma di Irrigazione</h1>
+                <p class="page-subtitle" data-i18n="createProgram.pageSubtitle">Personalizza orari, frequenze e zone in pochi tocchi</p>
+            </header>
 
-        <div class="form-sections-container">
-        <!-- Program Info Section -->
-        <div class="form-section full-width">
-            <div class="section-header">
-                <h2 class="section-title" data-i18n="createProgram.generalInfoTitle">Informazioni Generali</h2>
-                <p class="section-description" data-i18n="createProgram.generalInfoDesc">Nome, orario e frequenza del programma</p>
-            </div>
-            <div class="section-content">
-                <div class="form-group">
-                    <label for="program-name" class="form-label" data-i18n="createProgram.programNameLabel">Nome Programma</label>
-                    <input type="text" id="program-name" class="form-control" maxlength="16" 
-                           data-i18n-placeholder="createProgram.programNamePlaceholder" 
-                           placeholder="Es. Irrigazione Mattutina" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="activation-time" class="form-label" data-i18n="createProgram.activationTimeLabel">Orario di Attivazione</label>
-                    <input type="time" id="activation-time" class="form-control" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="recurrence" class="form-label" data-i18n="createProgram.frequencyLabel">Frequenza</label>
-                    <select id="recurrence" class="form-control" onchange="toggleCustomInterval()">
-                        <option value="daily" data-i18n="createProgram.recurrenceDaily">Ogni Giorno</option>
-                        <option value="alternatingDays" data-i18n="createProgram.recurrenceAlternate">Giorni Alterni</option>
-                        <option value="custom" data-i18n="createProgram.recurrenceCustom">Intervallo Personalizzato</option>
-                    </select>
-                    
-                    <div id="custom-interval" class="custom-interval">
-                        <label for="interval-days" class="form-label" data-i18n="createProgram.customIntervalLabel">Esegui ogni (giorni)</label>
-                        <input type="number" id="interval-days" class="form-control" min="1" max="30" value="3" 
-                               data-i18n-placeholder="createProgram.customIntervalPlaceholder" 
-                               placeholder="Es. 3">
+            <div class="form-sections-grid">
+                <section class="form-section full-width">
+                    <div class="section-header">
+                        <h2 class="section-title" data-i18n="createProgram.detailsTitle">Dettagli Programma</h2>
+                        <p class="section-description" data-i18n="createProgram.detailsDesc">Definisci nome, orario di avvio e frequenza di esecuzione</p>
                     </div>
-                </div>
-            </div>
-        </div>
+                    <div class="section-content">
+                        <div class="form-group">
+                            <label for="program-name" class="form-label" data-i18n="createProgram.programNameLabel">Nome Programma</label>
+                            <input type="text" id="program-name" class="form-control" maxlength="16"
+                                   data-i18n-placeholder="createProgram.programNamePlaceholder"
+                                   placeholder="Es. Irrigazione Mattutina" required>
+                        </div>
 
-        <!-- Months Section -->
-        <div class="form-section">
-            <div class="section-header">
-                <h2 class="section-title" data-i18n="createProgram.periodTitle">Periodo di Attività</h2>
-                <p class="section-description" data-i18n="createProgram.periodDesc">Seleziona i mesi in cui questo programma sarà operativo</p>
-            </div>
-            <div class="section-content">
-                <div id="months-grid" class="months-grid">
-                    <div class="loading-state" data-i18n="general.loading">Caricamento...</div>
-                </div>
-            </div>
-        </div>
+                        <div class="form-group">
+                            <label for="activation-time" class="form-label" data-i18n="createProgram.activationTimeLabel">Orario di Attivazione</label>
+                            <input type="time" id="activation-time" class="form-control" required>
+                        </div>
 
-        <!-- Zones Section -->
-        <div class="form-section">
-            <div class="section-header">
-                <h2 class="section-title" data-i18n="createProgram.zonesTitle">Zone e Durate</h2>
-                <p class="section-description" data-i18n="createProgram.zonesDesc">Seleziona le zone e imposta la durata di irrigazione</p>
-            </div>
-            <div class="section-content">
-                <div id="zones-grid" class="zones-grid">
-                    <div class="loading-state" data-i18n="general.loading">Caricamento...</div>
-                </div>
-            </div>
-        </div>
+                        <div class="form-group">
+                            <label for="recurrence" class="form-label" data-i18n="createProgram.frequencyLabel">Frequenza</label>
+                            <select id="recurrence" class="form-control" onchange="toggleCustomInterval()">
+                                <option value="daily" data-i18n="createProgram.recurrenceDaily">Ogni Giorno</option>
+                                <option value="alternatingDays" data-i18n="createProgram.recurrenceAlternate">Giorni Alterni</option>
+                                <option value="custom" data-i18n="createProgram.recurrenceCustom">Intervallo Personalizzato</option>
+                            </select>
 
-        </div> <!-- Fine form-sections-container -->
-        
-        <!-- Action Buttons -->
-        <div class="form-actions">
-            <button type="button" class="btn btn-secondary" onclick="goBack()">
-                <span data-i18n="general.cancel">Annulla</span>
-            </button>
-            <button type="button" id="save-button" class="btn btn-primary" onclick="saveProgram()">
-                <span data-i18n="createProgram.saveButton">Crea Programma</span>
-            </button>
+                            <div id="custom-interval" class="custom-interval">
+                                <label for="interval-days" class="form-label" data-i18n="createProgram.customIntervalLabel">Esegui ogni (giorni)</label>
+                                <input type="number" id="interval-days" class="form-control" min="1" max="30" value="3"
+                                       data-i18n-placeholder="createProgram.customIntervalPlaceholder"
+                                       placeholder="Es. 3">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="form-section">
+                    <div class="section-header">
+                        <h2 class="section-title" data-i18n="createProgram.periodTitle">Periodo di Attività</h2>
+                        <p class="section-description" data-i18n="createProgram.periodDesc">Seleziona i mesi in cui questo programma sarà operativo</p>
+                    </div>
+                    <div class="section-content">
+                        <div id="months-grid" class="months-grid">
+                            <div class="loading-state" data-i18n="general.loading">Caricamento...</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="form-section full-width">
+                    <div class="section-header">
+                        <h2 class="section-title" data-i18n="createProgram.zonesTitle">Zone e Durate</h2>
+                        <p class="section-description" data-i18n="createProgram.zonesDesc">Seleziona le zone da irrigare e imposta la durata per ciascuna</p>
+                    </div>
+                    <div class="section-content">
+                        <div id="zones-grid" class="zones-grid">
+                            <div class="loading-state" data-i18n="general.loading">Caricamento...</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary" onclick="goBack()">
+                    <span data-i18n="general.cancel">Annulla</span>
+                </button>
+                <button type="button" id="save-button" class="btn btn-primary" onclick="saveProgram()">
+                    <span data-i18n="createProgram.saveButton">Crea Programma</span>
+                </button>
+            </div>
         </div>
     </div>
-
-    <!-- JavaScript integrazioni -->
-    <script>
-        // Funzioni inline semplici per le interazioni base
-        function toggleCustomInterval() {
-            const select = document.getElementById('recurrence');
-            const customDiv = document.getElementById('custom-interval');
-            
-            if (select.value === 'custom') {
-                customDiv.classList.add('show');
-                document.getElementById('interval-days').focus();
-            } else {
-                customDiv.classList.remove('show');
-            }
-        }
-        
-        // Gestione click sui mesi
-        function handleMonthClick(monthElement) {
-            monthElement.classList.toggle('selected');
-        }
-        
-        // Gestione click sulle zone
-        function handleZoneClick(zoneElement) {
-            const wasSelected = zoneElement.classList.contains('selected');
-            const checkbox = zoneElement.querySelector('.zone-checkbox');
-            const durationInput = zoneElement.querySelector('.zone-duration-input');
-            
-            if (wasSelected) {
-                zoneElement.classList.remove('selected');
-                checkbox.checked = false;
-                durationInput.disabled = true;
-                durationInput.value = '';
-            } else {
-                zoneElement.classList.add('selected');
-                checkbox.checked = true;
-                durationInput.disabled = false;
-                durationInput.value = '10';
-                setTimeout(() => durationInput.focus(), 100);
-            }
-        }
-        
-        // Placeholder per funzioni che verranno definite nel JS esterno
-        function goBack() {
-            console.log('goBack - sarà implementata nel modulo JS');
-        }
-        
-        function saveProgram() {
-            console.log('saveProgram - sarà implementata nel modulo JS');
-        }
-    </script>
 </body>
 </html>

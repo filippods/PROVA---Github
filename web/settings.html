@@ -9,113 +9,111 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
         :root {
-            --font-family-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --font-family-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 
-            /* === APPLE GLASSMORPHISM DESIGN SYSTEM === */
-            /* Palette: Grigio/Verdognolo/Azzurrato con Alta Leggibilità */
+            --color-primary: rgba(88, 164, 255, 0.92);
+            --color-primary-dark: rgba(42, 123, 222, 0.95);
+            --color-primary-light: rgba(88, 164, 255, 0.18);
+            --color-primary-gradient: linear-gradient(135deg, rgba(88, 164, 255, 0.9) 0%, rgba(42, 123, 222, 0.85) 100%);
+            --color-primary-rgb: 88, 164, 255;
 
-            /* Core Brand Colors - Enhanced Azzurrino Palette */
-            --color-primary: rgba(64, 162, 235, 0.9);           /* Azzurrino moderno */
-            --color-primary-light: rgba(64, 162, 235, 0.18);
-            --color-primary-gradient: linear-gradient(135deg, rgba(64, 162, 235, 0.9) 0%, rgba(52, 152, 219, 0.85) 100%);
-            --color-primary-dark: rgba(52, 139, 199, 0.95);
-            --color-primary-rgb: 64, 162, 235;
+            --color-secondary: rgba(90, 205, 190, 0.9);
+            --color-secondary-dark: rgba(36, 169, 150, 0.95);
+            --color-secondary-light: rgba(90, 205, 190, 0.16);
+            --color-secondary-gradient: linear-gradient(135deg, rgba(90, 205, 190, 0.9) 0%, rgba(36, 169, 150, 0.82) 100%);
 
-            --color-secondary: rgba(58, 141, 162, 0.85);        /* Verde-azzurro sofisticato */
-            --color-secondary-light: rgba(58, 141, 162, 0.18);
-            --color-secondary-gradient: linear-gradient(135deg, rgba(58, 141, 162, 0.85) 0%, rgba(46, 125, 150, 0.8) 100%);
-            --color-secondary-dark: rgba(39, 115, 135, 0.9);
+            --color-accent: rgba(188, 169, 255, 0.85);
+            --color-accent-light: rgba(188, 169, 255, 0.22);
+            --color-accent-gradient: linear-gradient(135deg, rgba(188, 169, 255, 0.85) 0%, rgba(145, 125, 255, 0.78) 100%);
 
-            --color-accent: rgba(106, 145, 169, 0.9);           /* Grigio-azzurrino */
-            --color-accent-light: rgba(106, 145, 169, 0.18);
-            --color-accent-gradient: linear-gradient(135deg, rgba(106, 145, 169, 0.9) 0%, rgba(96, 125, 159, 0.85) 100%);
-
-            /* Glass Surface Colors - Advanced Transparency with Gradients */
-            --color-surface-primary: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(250, 252, 255, 0.12) 100%);
-            --color-surface-secondary: linear-gradient(135deg, rgba(248, 252, 255, 0.1) 0%, rgba(245, 250, 255, 0.08) 100%);
-            --color-surface-tertiary: linear-gradient(135deg, rgba(245, 250, 255, 0.08) 0%, rgba(240, 248, 255, 0.06) 100%);
-            --color-surface-elevated: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(250, 254, 255, 0.18) 100%);
-            --color-surface-overlay: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(248, 252, 255, 0.25) 100%);
-
-            /* Background Gradient - Enhanced Azzurrino Ultra-Light */
-            --color-background: linear-gradient(135deg,
-                rgba(248, 252, 255, 0.5) 0%,      /* Bianco azzurrino */
-                rgba(240, 248, 255, 0.4) 20%,     /* Azzurrino chiarissimo */
-                rgba(235, 245, 255, 0.35) 40%,    /* Azzurrino tenue */
-                rgba(230, 242, 255, 0.35) 60%,    /* Azzurrino soft */
-                rgba(225, 240, 255, 0.4) 80%,     /* Azzurrino delicato */
-                rgba(245, 250, 255, 0.5) 100%);   /* Bianco azzurrino finale */
-
-            /* Enhanced Text Colors - Ottimizzati per Leggibilità */
-            --color-text-primary: rgba(23, 37, 42, 0.98);      /* Grigio scuro - maggiore contrasto */
-            --color-text-secondary: rgba(55, 71, 79, 0.9);     /* Grigio medio - più leggibile */
-            --color-text-muted: rgba(96, 125, 139, 0.8);       /* Grigio-azzurro più definito */
+            --color-text-primary: rgba(20, 28, 38, 0.95);
+            --color-text-secondary: rgba(62, 78, 96, 0.85);
+            --color-text-muted: rgba(110, 128, 145, 0.75);
             --color-text-inverse: rgba(255, 255, 255, 0.98);
-            --color-text-accent: rgba(52, 152, 219, 0.95);     /* Azzurro più intenso */
-            --color-text-headings: rgba(15, 23, 42, 0.95);     /* Intestazioni più contrastate */
+            --color-text-accent: rgba(88, 164, 255, 0.95);
+            --color-text-headings: rgba(20, 28, 38, 0.95);
+            --color-text-body: rgba(62, 78, 96, 0.85);
 
-            /* Enhanced Status Colors */
-            --color-success: rgba(46, 125, 50, 0.95);          /* Verde più definito */
-            --color-success-bg: rgba(46, 125, 50, 0.15);
-            --color-success-border: rgba(46, 125, 50, 0.4);
+            --color-success: rgba(56, 189, 149, 0.95);
+            --color-success-rgb: 56, 189, 149;
+            --color-success-bg: rgba(56, 189, 149, 0.16);
+            --color-success-border: rgba(56, 189, 149, 0.35);
 
-            --color-info: rgba(52, 152, 219, 0.95);            /* Azzurro più definito */
-            --color-info-bg: rgba(52, 152, 219, 0.15);
-            --color-info-border: rgba(52, 152, 219, 0.4);
+            --color-info: rgba(88, 164, 255, 0.95);
+            --color-info-bg: rgba(88, 164, 255, 0.16);
+            --color-info-border: rgba(88, 164, 255, 0.35);
 
-            --color-warning: rgba(243, 156, 18, 0.95);         /* Arancione più definito */
-            --color-warning-bg: rgba(243, 156, 18, 0.15);
-            --color-warning-border: rgba(243, 156, 18, 0.4);
+            --color-warning: rgba(255, 196, 105, 0.95);
+            --color-warning-bg: rgba(255, 196, 105, 0.2);
+            --color-warning-border: rgba(255, 196, 105, 0.4);
 
-            --color-danger: rgba(231, 76, 60, 0.95);           /* Rosso più definito */
-            --color-danger-bg: rgba(231, 76, 60, 0.15);
-            --color-danger-border: rgba(231, 76, 60, 0.4);
+            --color-danger: rgba(236, 98, 98, 0.95);
+            --color-danger-bg: rgba(236, 98, 98, 0.18);
+            --color-danger-border: rgba(236, 98, 98, 0.42);
 
-            /* Enhanced Borders - Migliore Visibilità */
-            --color-border-light: rgba(255, 255, 255, 0.3);
-            --color-border-medium: rgba(96, 125, 139, 0.25);
-            --color-border-strong: rgba(96, 125, 139, 0.4);
-            --color-border-accent: rgba(52, 152, 219, 0.45);
+            --color-border-light: rgba(255, 255, 255, 0.35);
+            --color-border-medium: rgba(147, 167, 188, 0.25);
+            --color-border-strong: rgba(110, 128, 145, 0.32);
+            --color-border-accent: rgba(88, 164, 255, 0.4);
+            --color-border: rgba(210, 220, 235, 0.35);
 
-            /* Advanced Glass Effects */
+            --color-surface: linear-gradient(135deg, rgba(255, 255, 255, 0.24) 0%, rgba(245, 250, 255, 0.18) 100%);
+            --color-surface-elevated: linear-gradient(135deg, rgba(255, 255, 255, 0.32) 0%, rgba(240, 248, 255, 0.26) 100%);
+            --color-surface-overlay: linear-gradient(145deg, rgba(255, 255, 255, 0.38) 0%, rgba(245, 248, 255, 0.3) 100%);
+            --color-surface-muted: rgba(255, 255, 255, 0.16);
+            --color-surface-primary: var(--color-surface);
+            --color-surface-secondary: rgba(255, 255, 255, 0.34);
+            --color-surface-tertiary: rgba(255, 255, 255, 0.22);
+            --color-surface-alt: rgba(255, 255, 255, 0.52);
+
+            --color-background: radial-gradient(120% 120% at 10% 10%, rgba(188, 169, 255, 0.18) 0%, transparent 60%),
+                               radial-gradient(120% 120% at 90% 20%, rgba(90, 205, 190, 0.18) 0%, transparent 65%),
+                               linear-gradient(135deg, rgba(244, 248, 255, 0.8) 0%, rgba(236, 246, 255, 0.9) 100%);
+
             --glass-blur-light: 12px;
-            --glass-blur-medium: 20px;
-            --glass-blur-heavy: 32px;
-            --glass-border-light: 1px solid rgba(255, 255, 255, 0.25);
-            --glass-border-medium: 1px solid rgba(96, 125, 139, 0.3);
-            --glass-border-accent: 1px solid rgba(52, 152, 219, 0.4);
-            --glass-shadow-soft: 0 8px 32px rgba(96, 125, 139, 0.1);
-            --glass-shadow-medium: 0 12px 40px rgba(96, 125, 139, 0.15);
-            --glass-shadow-strong: 0 20px 60px rgba(96, 125, 139, 0.2);
-            --glass-inner-light: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            --glass-blur-medium: 18px;
+            --glass-blur-heavy: 28px;
+            --glass-blur-sm: 10px;
+            --glass-blur: 18px;
+
+            --glass-border-light: 1px solid rgba(255, 255, 255, 0.28);
+            --glass-border-medium: 1px solid rgba(147, 167, 188, 0.28);
+            --glass-border-accent: 1px solid rgba(88, 164, 255, 0.45);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.32);
+
+            --glass-shadow-soft: 0 8px 28px rgba(40, 65, 97, 0.14);
+            --glass-shadow-medium: 0 16px 42px rgba(32, 55, 87, 0.2);
+            --glass-shadow-strong: 0 26px 74px rgba(22, 40, 72, 0.25);
+            --glass-inner-light: inset 0 1px 0 rgba(255, 255, 255, 0.35);
             --glass-inner-strong: inset 0 1px 0 rgba(255, 255, 255, 0.5);
 
-            /* Spacing */
-            --spacing-xs: 4px;
-            --spacing-sm: 8px;
-            --spacing-md: 16px;
-            --spacing-lg: 24px;
-            --spacing-xl: 32px;
-            --spacing-2xl: 48px;
+            --shadow-glass-sm: 0 8px 20px rgba(40, 65, 97, 0.12);
+            --shadow-glass-md: 0 12px 30px rgba(32, 55, 87, 0.16);
+            --shadow-glass-lg: 0 18px 46px rgba(22, 40, 72, 0.22);
 
-            /* Border Radius */
-            --radius-xs: 6px;
-            --radius-sm: 8px;
-            --radius-base: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 24px;
-            --radius-full: 50px;
+            --spacing-xs: 6px;
+            --spacing-sm: 12px;
+            --spacing-md: 18px;
+            --spacing-lg: 28px;
+            --spacing-xl: 42px;
+            --spacing-2xl: 60px;
 
-            /* Shadows - Glass-style */
-            --shadow-glass-sm: 0 4px 16px rgba(0, 0, 0, 0.08);
-            --shadow-glass-md: 0 8px 24px rgba(0, 0, 0, 0.12);
-            --shadow-glass-lg: 0 16px 32px rgba(0, 0, 0, 0.16);
-            --shadow-glass-xl: 0 24px 48px rgba(0, 0, 0, 0.2);
+            --radius-xs: 10px;
+            --radius-sm: 12px;
+            --radius-base: 16px;
+            --radius-lg: 22px;
+            --radius-xl: 28px;
+            --radius-full: 999px;
 
-            /* Transitions */
-            --transition-fast: 0.2s ease-out;
-            --transition-base: 0.3s ease-out;
-            --transition-slow: 0.5s ease-out;
+            --transition-duration-fast: 150ms;
+            --transition-duration-base: 250ms;
+            --transition-duration-slow: 400ms;
+            --transition-fast: 0.18s ease;
+            --transition-base: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+
+            --header-height: 70px;
+            --bottom-nav-height: 68px;
         }
 
         * {
@@ -1174,11 +1172,214 @@
                 padding: 12px;
             }
         }
+    
+        :root {
+            --color-primary: rgba(88, 164, 255, 0.92);
+            --color-primary-dark: rgba(42, 123, 222, 0.95);
+            --color-primary-light: rgba(88, 164, 255, 0.18);
+            --color-primary-gradient: linear-gradient(135deg, rgba(88, 164, 255, 0.9) 0%, rgba(42, 123, 222, 0.85) 100%);
+            --color-primary-rgb: 88, 164, 255;
+
+            --color-secondary: rgba(90, 205, 190, 0.9);
+            --color-secondary-dark: rgba(36, 169, 150, 0.95);
+            --color-secondary-light: rgba(90, 205, 190, 0.16);
+            --color-secondary-gradient: linear-gradient(135deg, rgba(90, 205, 190, 0.9) 0%, rgba(36, 169, 150, 0.82) 100%);
+
+            --color-accent: rgba(188, 169, 255, 0.85);
+            --color-accent-light: rgba(188, 169, 255, 0.22);
+            --color-accent-gradient: linear-gradient(135deg, rgba(188, 169, 255, 0.85) 0%, rgba(145, 125, 255, 0.78) 100%);
+
+            --color-text-primary: rgba(20, 28, 38, 0.95);
+            --color-text-secondary: rgba(62, 78, 96, 0.85);
+            --color-text-muted: rgba(110, 128, 145, 0.75);
+            --color-text-headings: rgba(20, 28, 38, 0.95);
+            --color-text-body: rgba(62, 78, 96, 0.85);
+
+            --color-success: rgba(56, 189, 149, 0.95);
+            --color-success-rgb: 56, 189, 149;
+            --color-success-bg: rgba(56, 189, 149, 0.16);
+            --color-success-border: rgba(56, 189, 149, 0.35);
+
+            --color-info: rgba(88, 164, 255, 0.95);
+            --color-info-bg: rgba(88, 164, 255, 0.16);
+            --color-info-border: rgba(88, 164, 255, 0.35);
+
+            --color-warning: rgba(255, 196, 105, 0.95);
+            --color-warning-bg: rgba(255, 196, 105, 0.2);
+            --color-warning-border: rgba(255, 196, 105, 0.4);
+
+            --color-danger: rgba(236, 98, 98, 0.95);
+            --color-danger-bg: rgba(236, 98, 98, 0.18);
+            --color-danger-border: rgba(236, 98, 98, 0.42);
+
+            --color-surface: linear-gradient(135deg, rgba(255, 255, 255, 0.24) 0%, rgba(245, 250, 255, 0.18) 100%);
+            --color-surface-elevated: linear-gradient(135deg, rgba(255, 255, 255, 0.32) 0%, rgba(240, 248, 255, 0.26) 100%);
+            --color-surface-overlay: linear-gradient(145deg, rgba(255, 255, 255, 0.38) 0%, rgba(245, 248, 255, 0.3) 100%);
+            --color-surface-primary: var(--color-surface);
+            --color-surface-secondary: rgba(255, 255, 255, 0.34);
+            --color-surface-tertiary: rgba(255, 255, 255, 0.22);
+            --color-surface-alt: rgba(255, 255, 255, 0.52);
+
+            --color-background: radial-gradient(120% 120% at 10% 10%, rgba(188, 169, 255, 0.18) 0%, transparent 60%),
+                                radial-gradient(120% 120% at 90% 20%, rgba(90, 205, 190, 0.18) 0%, transparent 65%),
+                                linear-gradient(135deg, rgba(244, 248, 255, 0.8) 0%, rgba(236, 246, 255, 0.9) 100%);
+
+            --glass-blur-light: 12px;
+            --glass-blur-medium: 18px;
+            --glass-blur-heavy: 28px;
+            --glass-blur-sm: 10px;
+            --glass-blur: 18px;
+
+            --glass-border-light: 1px solid rgba(255, 255, 255, 0.28);
+            --glass-border-medium: 1px solid rgba(147, 167, 188, 0.28);
+            --glass-border-accent: 1px solid rgba(88, 164, 255, 0.45);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.32);
+
+            --glass-shadow-soft: 0 8px 28px rgba(40, 65, 97, 0.14);
+            --glass-shadow-medium: 0 16px 42px rgba(32, 55, 87, 0.2);
+            --glass-shadow-strong: 0 26px 74px rgba(22, 40, 72, 0.25);
+
+            --spacing-xs: 6px;
+            --spacing-sm: 12px;
+            --spacing-md: 18px;
+            --spacing-lg: 28px;
+            --spacing-xl: 42px;
+            --spacing-2xl: 60px;
+
+            --radius-xs: 10px;
+            --radius-sm: 12px;
+            --radius-base: 16px;
+            --radius-lg: 22px;
+            --radius-xl: 28px;
+            --radius-full: 999px;
+
+            --transition-duration-fast: 150ms;
+            --transition-duration-base: 250ms;
+            --transition-duration-slow: 400ms;
+            --transition-fast: 0.18s ease;
+            --transition-base: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+
+            --header-height: 70px;
+            --bottom-nav-height: 68px;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            font-family: var(--font-family-main);
+            color: var(--color-text-primary);
+            background: var(--color-background);
+            padding: calc(var(--header-height) + var(--spacing-lg)) var(--spacing-lg)
+                     calc(var(--bottom-nav-height) + var(--spacing-xl));
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            backdrop-filter: blur(var(--glass-blur-heavy)) saturate(160%);
+            -webkit-backdrop-filter: blur(var(--glass-blur-heavy)) saturate(160%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.36) 0%, rgba(245, 250, 255, 0.26) 100%);
+            z-index: -2;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(60% 80% at 0% 100%, rgba(88, 164, 255, 0.16), transparent 70%),
+                radial-gradient(70% 70% at 100% 0%, rgba(90, 205, 190, 0.16), transparent 70%),
+                radial-gradient(40% 50% at 50% 20%, rgba(188, 169, 255, 0.12), transparent 70%);
+            mix-blend-mode: screen;
+            z-index: -1;
+        }
+
+        .page-content-wrapper {
+            width: min(1180px, 100%);
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .settings-page-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+
+        .page-header {
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-xl);
+            background: var(--color-surface-elevated);
+            border: 1px solid var(--color-border-light);
+            box-shadow: var(--glass-shadow-soft);
+            backdrop-filter: blur(var(--glass-blur-medium));
+            -webkit-backdrop-filter: blur(var(--glass-blur-medium));
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .page-header h1 {
+            margin: 0;
+            font-size: clamp(26px, 3vw, 34px);
+            font-weight: 700;
+            color: var(--color-text-primary);
+        }
+
+        .page-header p {
+            margin: 0;
+            font-size: 16px;
+            color: var(--color-text-secondary);
+            opacity: 0.85;
+        }
+
+        .settings-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        @media (max-width: 1024px) {
+            body {
+                padding: calc(var(--header-height) + var(--spacing-md)) var(--spacing-md)
+                         calc(var(--bottom-nav-height) + var(--spacing-lg));
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: calc(var(--header-height) + var(--spacing-sm)) var(--spacing-sm)
+                         calc(var(--bottom-nav-height) + var(--spacing-md));
+            }
+
+            .page-header {
+                padding: var(--spacing-md);
+            }
+
+            .settings-container {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+        }
+
     </style>
 </head>
 <body>
     <div class="page-content-wrapper">
-        <div class="settings-container">
+        <div class="settings-page-container">
+            <header class="page-header">
+                <h1 data-i18n="settings.pageTitle">Impostazioni di Sistema - IrrigaSmart</h1>
+                <p data-i18n="settings.pageSubtitle">Personalizza rete, zone e preferenze avanzate</p>
+            </header>
+
+            <div class="settings-container">
             <!-- Language Settings -->
             <div class="settings-card language-card">
                 <div class="card-header">
@@ -1419,6 +1620,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 
