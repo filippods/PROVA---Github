@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title data-i18n="createProgram.pageTitle">Crea Nuovo Programma</title>
+    <style>
+        /* Apple Glassmorphism Program Creation */
+        :root {
+            /* Enhanced Program Creation Colors - Azzurrino Palette */
+            --color-primary: rgba(64, 162, 235, 0.9);
+            --color-primary-light: rgba(64, 162, 235, 0.2);
+            --color-primary-gradient: linear-gradient(135deg, rgba(64, 162, 235, 0.9) 0%, rgba(52, 152, 219, 0.85) 100%);
+            --color-primary-dark: rgba(52, 139, 199, 0.95);
+
+            --color-secondary: rgba(58, 141, 162, 0.9);
+            --color-secondary-light: rgba(58, 141, 162, 0.2);
+            --color-secondary-gradient: linear-gradient(135deg, rgba(58, 141, 162, 0.9) 0%, rgba(46, 125, 150, 0.85) 100%);
+
+            --color-accent: rgba(106, 145, 169, 0.9);
+            --color-accent-light: rgba(106, 145, 169, 0.2);
+            --color-accent-gradient: linear-gradient(135deg, rgba(106, 145, 169, 0.9) 0%, rgba(96, 125, 159, 0.85) 100%);
+
+            /* Enhanced Surface Colors with Gradients */
+            --color-surface: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(250, 252, 255, 0.12) 100%);
+            --color-surface-light: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(250, 254, 255, 0.18) 100%);
+            --color-surface-elevated: linear-gradient(135deg, rgba(255, 255, 255, 0.28) 0%, rgba(248, 252, 255, 0.24) 100%);
+
+            /* Enhanced Text Colors */
+            --color-text-headings: rgba(15, 23, 42, 0.95);
+            --color-text-body: rgba(30, 41, 59, 0.9);
+            --color-text-muted: rgba(96, 125, 139, 0.8);
+            --color-text-inverse: rgba(255, 255, 255, 0.98);
+
+            /* Enhanced Glass Effects */
+            --glass-blur: 20px;
+            --glass-blur-sm: 12px;
+            --glass-blur-lg: 32px;
+            --glass-border: 1px solid rgba(255, 255, 255, 0.25);
+            --glass-border-accent: 1px solid rgba(52, 152, 219, 0.4);
+
+            /* Enhanced Shadows */
+            --shadow-glass-sm: 0 4px 16px rgba(96, 125, 139, 0.08);
+            --shadow-glass-md: 0 8px 32px rgba(96, 125, 139, 0.12);
+            --shadow-glass-lg: 0 16px 48px rgba(96, 125, 139, 0.16);
+
+            /* Layout */
+            --radius-xs: 6px;
+            --radius-sm: 8px;
+            --radius-base: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-full: 50px;
+
+            --transition-duration-fast: 150ms;
+            --transition-duration-base: 250ms;
+            --transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+            --font-family-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        /* Reset e Base */
+        * {
+            box-sizing: border-box;
+        }
+        
+        /* Background Glass Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(40px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.1) 100%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-family-main);
+            color: var(--color-text-body);
+            line-height: 1.5;
+        }
+        
+        /* Layout Container - Responsive e coerente */
+        .page-wrapper {
+            max-width: 1200px; /* Larghezza aumentata per layout responsive */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Layout responsive per form sections */
+        @media (min-width: 1024px) {
+            .form-sections-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
+            }
+            
+            .form-section.full-width {
+                grid-column: 1 / -1;
+            }
+        }
+        
+        /* Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 32px;
+            padding-bottom: 20px;
+            border-bottom: var(--glass-border);
+        }
+
+        .page-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--color-text-headings);
+            margin: 0 0 8px 0;
+        }
+        
+        .page-subtitle {
+            font-size: 16px;
+            color: var(--color-text-muted, #64748b);
+            margin: 0;
+        }
+        
+        /* Form Sections - Glass Design */
+        .form-section {
+            background: var(--color-surface);
+            border: var(--glass-border);
+            backdrop-filter: blur(var(--glass-blur));
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-glass-md);
+            margin-bottom: 24px;
+            overflow: hidden;
+            transition: all var(--transition-duration-base) ease;
+            min-height: 280px;
+        }
+
+        .form-section:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glass-lg);
+            background: var(--color-surface-light);
+        }
+        
+        .section-header {
+            background: var(--color-surface-light);
+            border-bottom: var(--glass-border);
+            color: var(--color-text-headings);
+            padding: 16px 20px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 4px 0;
+        }
+        
+        .section-description {
+            font-size: 14px;
+            opacity: 0.9;
+            margin: 0;
+        }
+        
+        .section-content {
+            padding: 24px;
+        }
+        
+        /* Form Controls */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: var(--color-text-headings, #1e293b);
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: var(--glass-border);
+            border-radius: var(--radius-base);
+            font-size: 16px;
+            transition: all var(--transition-duration-fast) ease;
+            background: var(--color-surface);
+            backdrop-filter: blur(var(--glass-blur-sm));
+            color: var(--color-text-body);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            box-shadow: var(--shadow-glass-lg);
+            background: var(--color-surface-light);
+        }
+
+        .form-control:hover:not(:focus) {
+            background: var(--color-surface-light);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Select Enhancement */
+        select.form-control {
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 12px center;
+            background-repeat: no-repeat;
+            background-size: 16px;
+            padding-right: 40px;
+        }
+        
+        /* Custom Days Section */
+        .custom-interval {
+            margin-top: 16px;
+            padding: 16px;
+            background: var(--color-surface);
+            border: var(--glass-border);
+            backdrop-filter: blur(var(--glass-blur-sm));
+            border-radius: var(--radius-base);
+            display: none;
+            box-shadow: var(--shadow-glass-sm);
+        }
+        
+        .custom-interval.show {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Months Grid */
+        .months-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 12px;
+        }
+        
+        .month-card {
+            padding: 16px 8px;
+            text-align: center;
+            border: 2px solid var(--color-border, #e2e8f0);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: white;
+            font-weight: 500;
+            user-select: none;
+        }
+        
+        .month-card:hover {
+            border-color: var(--color-primary);
+            background: var(--color-primary-light);
+        }
+        
+        .month-card.selected {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        /* Zones Grid - Compatto */
+        .zones-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+        
+        .zone-card {
+            border: var(--glass-border);
+            border-radius: var(--radius-base);
+            padding: 12px;
+            background: var(--color-surface);
+            backdrop-filter: blur(var(--glass-blur-sm));
+            cursor: pointer;
+            transition: all var(--transition-duration-fast) ease;
+            position: relative;
+            min-height: 80px;
+            box-shadow: var(--shadow-glass-sm);
+        }
+
+        .zone-card:hover {
+            border-color: var(--color-accent);
+            box-shadow: var(--shadow-glass-md);
+            background: var(--color-surface-light);
+        }
+
+        .zone-card.selected {
+            border-color: var(--color-accent);
+            background: var(--color-surface-light);
+            box-shadow: var(--shadow-glass-lg);
+        }
+        
+        .zone-card.selected::before {
+            content: '✓';
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            width: 18px;
+            height: 18px;
+            background: var(--color-accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            box-shadow: var(--shadow-glass-sm);
+        }
+        
+        .zone-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-text-headings);
+            margin: 0 0 8px 0;
+            padding-right: 25px;
+        }
+        
+        .zone-duration-group {
+            margin-top: 8px;
+        }
+        
+        .zone-duration-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--color-text-muted);
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+        
+        .zone-duration-input {
+            width: 100%;
+            padding: 6px 8px;
+            border: var(--glass-border);
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            text-align: center;
+            font-weight: 500;
+            background: var(--color-surface);
+            backdrop-filter: blur(var(--glass-blur-sm));
+            color: var(--color-text-body);
+            transition: all var(--transition-duration-fast) ease;
+        }
+
+        .zone-duration-input:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            box-shadow: var(--shadow-glass-md);
+            background: var(--color-surface-light);
+        }
+
+        .zone-duration-input:disabled {
+            background: var(--color-surface-dark);
+            color: var(--color-text-muted);
+            cursor: not-allowed;
+        }
+
+        .zone-card.selected .zone-duration-input:enabled {
+            border-color: var(--color-accent);
+        }
+        
+        /* Hidden Elements */
+        .zone-checkbox {
+            display: none;
+        }
+        
+        /* Action Buttons */
+        .form-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 2px solid var(--color-border, #e2e8f0);
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 120px;
+            justify-content: center;
+        }
+        
+        .btn-primary {
+            background: var(--color-surface);
+            border: var(--glass-border);
+            backdrop-filter: blur(var(--glass-blur-sm));
+            color: var(--color-accent);
+            border-color: var(--color-accent);
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background: var(--color-surface-light);
+            box-shadow: var(--shadow-glass-lg);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: var(--color-surface);
+            border: var(--glass-border);
+            backdrop-filter: blur(var(--glass-blur-sm));
+            color: var(--color-text-body);
+        }
+
+        .btn-secondary:hover:not(:disabled) {
+            background: var(--color-surface-light);
+            box-shadow: var(--shadow-glass-md);
+        }
+        
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .btn.loading {
+            position: relative;
+            color: transparent;
+        }
+        
+        .btn.loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-top-color: var(--color-accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Loading State */
+        .loading-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--color-text-muted, #64748b);
+        }
+        
+        .loading-state::before {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 40px;
+            margin: 0 auto 16px auto;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-top-color: var(--color-accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        /* Error State */
+        .error-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--color-text-muted);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-wrapper {
+                padding: 16px;
+            }
+            
+            .zones-grid {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                gap: 8px;
+            }
+            
+            .months-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .form-actions {
+                flex-direction: column-reverse;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .zones-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .zone-card {
+                min-height: 70px;
+                padding: 8px;
+            }
+            
+            .zone-title {
+                font-size: 12px;
+                margin: 0 0 4px 0;
+            }
+            
+            .zone-duration-input {
+                font-size: 12px;
+                padding: 4px 6px;
+            }
+        }
+        
+        /* Validation States */
+        .form-control.error {
+            border-color: var(--color-danger, #dc2626);
+        }
+        
+        .form-control.success {
+            border-color: var(--color-success, #059669);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <!-- Header -->
+        <header class="page-header">
+            <h1 class="page-title" data-i18n="createProgram.pageTitle">Crea Nuovo Programma</h1>
+            <p class="page-subtitle" data-i18n="createProgram.pageSubtitle">Configura un nuovo programma di irrigazione automatica</p>
+        </header>
+
+        <div class="form-sections-container">
+        <!-- Program Info Section -->
+        <div class="form-section full-width">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="createProgram.generalInfoTitle">Informazioni Generali</h2>
+                <p class="section-description" data-i18n="createProgram.generalInfoDesc">Nome, orario e frequenza del programma</p>
+            </div>
+            <div class="section-content">
+                <div class="form-group">
+                    <label for="program-name" class="form-label" data-i18n="createProgram.programNameLabel">Nome Programma</label>
+                    <input type="text" id="program-name" class="form-control" maxlength="16" 
+                           data-i18n-placeholder="createProgram.programNamePlaceholder" 
+                           placeholder="Es. Irrigazione Mattutina" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="activation-time" class="form-label" data-i18n="createProgram.activationTimeLabel">Orario di Attivazione</label>
+                    <input type="time" id="activation-time" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="recurrence" class="form-label" data-i18n="createProgram.frequencyLabel">Frequenza</label>
+                    <select id="recurrence" class="form-control" onchange="toggleCustomInterval()">
+                        <option value="daily" data-i18n="createProgram.recurrenceDaily">Ogni Giorno</option>
+                        <option value="alternatingDays" data-i18n="createProgram.recurrenceAlternate">Giorni Alterni</option>
+                        <option value="custom" data-i18n="createProgram.recurrenceCustom">Intervallo Personalizzato</option>
+                    </select>
+                    
+                    <div id="custom-interval" class="custom-interval">
+                        <label for="interval-days" class="form-label" data-i18n="createProgram.customIntervalLabel">Esegui ogni (giorni)</label>
+                        <input type="number" id="interval-days" class="form-control" min="1" max="30" value="3" 
+                               data-i18n-placeholder="createProgram.customIntervalPlaceholder" 
+                               placeholder="Es. 3">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Months Section -->
+        <div class="form-section">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="createProgram.periodTitle">Periodo di Attività</h2>
+                <p class="section-description" data-i18n="createProgram.periodDesc">Seleziona i mesi in cui questo programma sarà operativo</p>
+            </div>
+            <div class="section-content">
+                <div id="months-grid" class="months-grid">
+                    <div class="loading-state" data-i18n="general.loading">Caricamento...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Zones Section -->
+        <div class="form-section">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="createProgram.zonesTitle">Zone e Durate</h2>
+                <p class="section-description" data-i18n="createProgram.zonesDesc">Seleziona le zone e imposta la durata di irrigazione</p>
+            </div>
+            <div class="section-content">
+                <div id="zones-grid" class="zones-grid">
+                    <div class="loading-state" data-i18n="general.loading">Caricamento...</div>
+                </div>
+            </div>
+        </div>
+
+        </div> <!-- Fine form-sections-container -->
+        
+        <!-- Action Buttons -->
+        <div class="form-actions">
+            <button type="button" class="btn btn-secondary" onclick="goBack()">
+                <span data-i18n="general.cancel">Annulla</span>
+            </button>
+            <button type="button" id="save-button" class="btn btn-primary" onclick="saveProgram()">
+                <span data-i18n="createProgram.saveButton">Crea Programma</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript integrazioni -->
+    <script>
+        // Funzioni inline semplici per le interazioni base
+        function toggleCustomInterval() {
+            const select = document.getElementById('recurrence');
+            const customDiv = document.getElementById('custom-interval');
+            
+            if (select.value === 'custom') {
+                customDiv.classList.add('show');
+                document.getElementById('interval-days').focus();
+            } else {
+                customDiv.classList.remove('show');
+            }
+        }
+        
+        // Gestione click sui mesi
+        function handleMonthClick(monthElement) {
+            monthElement.classList.toggle('selected');
+        }
+        
+        // Gestione click sulle zone
+        function handleZoneClick(zoneElement) {
+            const wasSelected = zoneElement.classList.contains('selected');
+            const checkbox = zoneElement.querySelector('.zone-checkbox');
+            const durationInput = zoneElement.querySelector('.zone-duration-input');
+            
+            if (wasSelected) {
+                zoneElement.classList.remove('selected');
+                checkbox.checked = false;
+                durationInput.disabled = true;
+                durationInput.value = '';
+            } else {
+                zoneElement.classList.add('selected');
+                checkbox.checked = true;
+                durationInput.disabled = false;
+                durationInput.value = '10';
+                setTimeout(() => durationInput.focus(), 100);
+            }
+        }
+        
+        // Placeholder per funzioni che verranno definite nel JS esterno
+        function goBack() {
+            console.log('goBack - sarà implementata nel modulo JS');
+        }
+        
+        function saveProgram() {
+            console.log('saveProgram - sarà implementata nel modulo JS');
+        }
+    </script>
+</body>
+</html>
